@@ -27,6 +27,15 @@ module.exports = {
     })
   ],
   optimization: {
-    namedModules: true
+    namedModules: true,
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    }
   }
 };
